@@ -9,6 +9,9 @@ import {
   selectCount,
 } from './counterSlice';
 import styles from './Counter.module.css';
+import { createStore, applyMiddleware } from 'redux';
+import thunkMiddleware from 'redux-thunk';
+import { createLogger } from 'redux-logger';
 
 export function Counter() {
   const count = useSelector(selectCount);
