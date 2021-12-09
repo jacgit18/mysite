@@ -5,8 +5,6 @@ import './App.css';
 import { connect } from 'react-redux';
 import { setSearchField } from './action';
 
-// import { setSearchField } from '../action';
-
 
 
 // parameter state comes from index.js provider store state(rootReducers)
@@ -14,7 +12,7 @@ import { setSearchField } from './action';
 const mapStateToProps = (state) => {
   return {
     searchField: state.searchStuff.searchField,
-    isPending: state.requestRobots.isPending
+    // isPending: state.requestRobots.isPending
   }
 }
 
@@ -28,56 +26,17 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 class App extends Component {
+  componentDidMount() {
+    this.props.setSearchField();
+  }
+  
   render() {
-    // componentDidMount() {
-    //   this.props.onRequestRobots();
-    // }
     return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
+        
       </header>
     </div>
    );
@@ -86,4 +45,4 @@ class App extends Component {
 }
 
 export default App;
-//export default connect(mapStateToProps, mapDispatchToProps)(App); // connect is high order compononents meaning it returns another function
+// export default connect(mapStateToProps, mapDispatchToProps)(App); // connect is high order compononents meaning it returns another function

@@ -9,9 +9,9 @@ import {
   selectCount,
 } from './counterSlice';
 import styles from './Counter.module.css';
-import { createStore, applyMiddleware } from 'redux';
-import thunkMiddleware from 'redux-thunk';
-import { createLogger } from 'redux-logger';
+// import { createStore, applyMiddleware } from 'redux';
+// import thunkMiddleware from 'redux-thunk';
+// import { createLogger } from 'redux-logger';
 
 export function Counter() {
   const count = useSelector(selectCount);
@@ -56,7 +56,7 @@ export function Counter() {
           className={styles.asyncButton}
           onClick={() => dispatch(incrementAsync(incrementValue))}
         >
-          Add Async
+          Add Async // problem
         </button>
         <button
           className={styles.button}
