@@ -26,9 +26,9 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 class App extends Component {
-  componentDidMount() {
-    this.props.setSearchField();
-  }
+  // componentDidMount() {
+  //   this.props.setSearchField();
+  // }
   
   render() {
     return (
