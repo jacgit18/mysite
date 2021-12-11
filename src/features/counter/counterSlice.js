@@ -1,6 +1,29 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { fetchCount } from './counterAPI';
 
+// basic REDUX
+// import { CHANGE_SEARCH_FIELD } from "./constants"; 
+// import { action } from "./action"; 
+
+// const initialState = {
+//     searchField: ''
+// }
+
+// reducer pure function input and output
+// export const searchStuff = (state=initialState, action={}) =>{
+//     switch(action.type){
+//         case CHANGE_SEARCH_FIELD:
+//              return Object.assign({}, state, {searchField:action.payload});
+
+//         default:
+//           return state;
+
+//     }
+// }
+
+
+
+// REDUCER HEAVY LIFTING
 const initialState = {
   value: 0,
   status: 'idle',
@@ -11,6 +34,7 @@ const initialState = {
 // will call the thunk with the `dispatch` function as the first argument. Async
 // code can then be executed and other actions can be dispatched. Thunks are
 // typically used to make async requests.
+// pure function
 export const incrementAsync = createAsyncThunk(
   'counter/fetchCount',
   async (amount) => {
@@ -30,14 +54,14 @@ export const counterSlice = createSlice({
       // doesn't actually mutate the state because it uses the Immer library,
       // which detects changes to a "draft state" and produces a brand new
       // immutable state based off those changes
-      state.value += 1;
+      state.value += 1; // alter state
     },
     decrement: (state) => {
       state.value -= 1;
     },
     // Use the PayloadAction type to declare the contents of `action.payload`
     incrementByAmount: (state, action) => {
-      state.value += action.payload;
+      state.value += action.payload; // alter state with string payload value
     },
   },
   // The `extraReducers` field lets the slice handle actions defined elsewhere,
@@ -50,9 +74,16 @@ export const counterSlice = createSlice({
       .addCase(incrementAsync.fulfilled, (state, action) => {
         state.status = 'idle';
         state.value += action.payload;
-      });
+      }); // iniat aync state change
   },
 });
+
+// REDUX BASIC ACTION
+// import { CHANGE_SEARCH_FIELD } from "./constants"; 
+// export const setSearchField = (text)=>({
+//     type: CHANGE_SEARCH_FIELD,
+//     payload: text
+// })
 
 export const { increment, decrement, incrementByAmount } = counterSlice.actions;
 
