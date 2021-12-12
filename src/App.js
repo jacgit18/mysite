@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
 import './App.css';
-import { connect } from 'react-redux';
-// import { setSearchField } from './action'; // GET ACTION
+// import { connect } from 'react-redux';
+// import { counter } from './app/store'; // GET ACTION
+// import { counterSlice } from './features/counter/counterSlice'; // GET ACTION
 
 
 
@@ -11,8 +12,12 @@ import { connect } from 'react-redux';
 // listens to state lets you get state from redux so can access from props
 // const mapStateToProps = (state) => {
 //   return {
-//     searchField: state.searchStuff.searchField,
-    // isPending: state.requestRobots.isPending
+//     incrementer: counterSlice.selectCount(state),
+//     // decrement: state.increment.state,
+//     // incrementByAmount: state.action.payload.incrementByAmount,
+//     // extraReducers: builder.incrementAsync
+
+//     // isPending: state.requestRobots.isPending
 //   }
 // }
 
@@ -21,13 +26,15 @@ import { connect } from 'react-redux';
 // trigger change
 // const mapDispatchToProps = (dispatch) => {
 //   return {
-//     onSearchChange: (event) => dispatch(setSearchField(event.target.value)),
+//     onClick: () => dispatch(),
+//     // onClick: () => dispatch(counterSlice.decrement())
+
 //   }
 // }
 
 class App extends Component {
   // componentDidMount() {
-  //   this.props.setSearchField();
+  //   this.props.increment();
   // }
   
   render() {
