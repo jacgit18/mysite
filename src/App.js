@@ -3,12 +3,12 @@ import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
 import './App.css';
 import { connect } from 'react-redux';
-// import { setSearchField } from './action';
+// import { setSearchField } from './action'; // GET ACTION
 
 
 
 // parameter state comes from index.js provider store state(rootReducers)
-// listens to state
+// listens to state lets you get state from redux so can access from props
 // const mapStateToProps = (state) => {
 //   return {
 //     searchField: state.searchStuff.searchField,
